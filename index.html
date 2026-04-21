@@ -39,14 +39,16 @@
   }
   .floating-bg .particle {
     position: absolute;
-    font-size: 22px;
-    opacity: 0.08;
+    font-size: 28px;
+    opacity: 0.18;
     animation: floatUp linear infinite;
     will-change: transform;
+    filter: saturate(1.4);
   }
   @keyframes floatUp {
-    0% { transform: translateY(110vh) rotate(0deg); }
-    100% { transform: translateY(-10vh) rotate(360deg); }
+    0% { transform: translateY(110vh) rotate(0deg) scale(1); }
+    50% { transform: translateY(50vh) rotate(180deg) scale(1.1); }
+    100% { transform: translateY(-10vh) rotate(360deg) scale(1); }
   }
   /* Ensure all content sits above particles */
   nav, .hero, .section, footer { position: relative; z-index: 1; }
@@ -549,32 +551,54 @@
 
 <script>
 (function() {
-  const symbols = [
-    // AI & Neural Networks
-    '\u2B22', '\u25C6', '\u2B21', '\u2B1F',
-    // Graph nodes & connections
-    '\u25CF', '\u25CB', '\u2B24', '\u25C9',
-    // Finance
-    '\u0024', '\u00A3', '\u20AC', '\u00A5',
-    // Math & Data
-    '\u03A3', '\u0394', '\u03BB', '\u221E',
-    // Agentic / Flow
-    '\u21BB', '\u2192', '\u21C4', '\u2933',
-    // Tech
-    '\u2699', '\u26A1', '\u2B13', '\u2317',
+  const items = [
+    // AI & Machine Learning
+    { icon: '\u{1F9E0}', color: '#e879f9' },  // brain
+    { icon: '\u{1F916}', color: '#818cf8' },  // robot
+    { icon: '\u{1F4A1}', color: '#fbbf24' },  // lightbulb
+    { icon: '\u{1F52C}', color: '#34d399' },  // microscope
+    // Computer & Software
+    { icon: '\u{1F4BB}', color: '#60a5fa' },  // laptop
+    { icon: '\u{1F5A5}', color: '#6366f1' },  // desktop
+    { icon: '\u{2699}\uFE0F', color: '#94a3b8' },  // gear
+    { icon: '\u{1F4BE}', color: '#a78bfa' },  // floppy disk
+    { icon: '\u{1F310}', color: '#22d3ee' },  // globe
+    { icon: '\u{1F517}', color: '#f472b6' },  // link / chain
+    { icon: '\u{1F512}', color: '#fb923c' },  // lock / security
+    { icon: '\u{2328}\uFE0F', color: '#94a3b8' },  // keyboard
+    // Finance & Business
+    { icon: '\u{1F4B0}', color: '#fbbf24' },  // money bag
+    { icon: '\u{1F4C8}', color: '#34d399' },  // chart up
+    { icon: '\u{1F4C9}', color: '#f87171' },  // chart down
+    { icon: '\u{1F4B3}', color: '#60a5fa' },  // credit card
+    { icon: '\u{1F3E6}', color: '#a78bfa' },  // bank
+    { icon: '\u{1F4B5}', color: '#4ade80' },  // dollar bill
+    { icon: '\u{1F4CA}', color: '#fb923c' },  // bar chart
+    // Data & Science
+    { icon: '\u{1F9EC}', color: '#c084fc' },  // DNA
+    { icon: '\u{26A1}', color: '#facc15' },  // lightning
+    { icon: '\u{1F680}', color: '#f97316' },  // rocket
+    { icon: '\u{1F50D}', color: '#38bdf8' },  // magnifier
+    { icon: '\u{1F4D0}', color: '#fb7185' },  // triangular ruler
+    // Network & Cloud
+    { icon: '\u{2601}\uFE0F', color: '#7dd3fc' },  // cloud
+    { icon: '\u{1F4E1}', color: '#a3e635' },  // satellite
+    { icon: '\u{1F50C}', color: '#fca5a5' },  // plug
+    { icon: '\u{1F4C2}', color: '#fdba74' },  // folder
   ];
 
   const container = document.getElementById('floatingBg');
-  const count = 35;
+  const count = 40;
 
   for (let i = 0; i < count; i++) {
+    const item = items[Math.floor(Math.random() * items.length)];
     const el = document.createElement('span');
     el.className = 'particle';
-    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    el.textContent = item.icon;
     el.style.left = Math.random() * 100 + '%';
-    el.style.fontSize = (14 + Math.random() * 20) + 'px';
-    el.style.opacity = 0.04 + Math.random() * 0.07;
-    el.style.animationDuration = (18 + Math.random() * 30) + 's';
+    el.style.fontSize = (20 + Math.random() * 22) + 'px';
+    el.style.opacity = 0.12 + Math.random() * 0.14;
+    el.style.animationDuration = (20 + Math.random() * 28) + 's';
     el.style.animationDelay = -(Math.random() * 40) + 's';
     container.appendChild(el);
   }
