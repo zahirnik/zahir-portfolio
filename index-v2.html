@@ -104,6 +104,20 @@
     font-size: 17px; color: rgba(255,255,255,0.6); max-width: 100%;
     line-height: 1.8; margin-bottom: 36px; text-align: justify;
   }
+  .hero .links-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero .links-row a {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.7);
+    padding: 10px 22px; border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.12); transition: all 0.25s;
+    background: rgba(255,255,255,0.04);
+  }
+  .hero .links-row a:hover {
+    border-color: var(--cyan); color: #fff;
+    background: rgba(6,182,212,0.1);
+    box-shadow: 0 0 20px rgba(6,182,212,0.15);
+  }
+  .hero .links-row a svg { width: 16px; height: 16px; }
 
   /* ─── SECTION ─── */
   .section { padding: 80px 0; border-bottom: 1px solid var(--border); position: relative; z-index: 1; }
@@ -130,17 +144,7 @@
   }
   .exp-content h3 { font-size: 18px; font-weight: 700; margin-bottom: 2px; }
   .exp-content .company { font-size: 14px; color: var(--accent-light); margin-bottom: 10px; }
-  .exp-content .role-intro { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 12px; font-style: italic; }
-  .exp-content ul { list-style: none; padding: 0; }
-  .exp-content ul li {
-    font-size: 13px; color: var(--text-muted); line-height: 1.7;
-    padding: 6px 0 6px 16px; position: relative;
-  }
-  .exp-content ul li::before {
-    content: ''; position: absolute; left: 0; top: 14px;
-    width: 5px; height: 5px; border-radius: 50%;
-    background: var(--accent-light); opacity: 0.5;
-  }
+  .exp-content p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
   .exp-content .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
   .tag {
     font-size: 11px; font-weight: 600; padding: 4px 10px;
@@ -184,13 +188,9 @@
   }
   .project-card .project-header {
     display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 8px;
-  }
-  .project-card h3 { font-size: 17px; font-weight: 700; }
-  .project-card .project-subtitle {
-    font-size: 12px; color: var(--accent-light); font-style: italic;
     margin-bottom: 12px;
   }
+  .project-card h3 { font-size: 17px; font-weight: 700; }
   .project-card .project-type {
     font-size: 10px; font-weight: 700; text-transform: uppercase;
     letter-spacing: 1px; padding: 3px 8px; border-radius: 4px;
@@ -198,15 +198,9 @@
   .project-type.platform { background: #eef2ff; color: var(--accent-light); }
   .project-type.tool { background: #ecfdf5; color: var(--green); }
   .project-type.agent { background: #fffbeb; color: var(--amber); }
-  .project-card ul { list-style: none; padding: 0; flex: 1; margin-bottom: 16px; }
-  .project-card ul li {
-    font-size: 12.5px; color: var(--text-muted); line-height: 1.6;
-    padding: 4px 0 4px 14px; position: relative;
-  }
-  .project-card ul li::before {
-    content: ''; position: absolute; left: 0; top: 12px;
-    width: 4px; height: 4px; border-radius: 50%;
-    background: var(--accent-light); opacity: 0.4;
+  .project-card p {
+    font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    flex: 1; margin-bottom: 16px;
   }
   .project-card .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
   .project-card .project-link {
@@ -248,17 +242,7 @@
   .edu-date { font-size: 13px; color: var(--text-muted); font-weight: 500; padding-top: 2px; }
   .edu-content h3 { font-size: 17px; font-weight: 700; margin-bottom: 2px; }
   .edu-content .school { font-size: 14px; color: var(--accent-light); margin-bottom: 6px; }
-  .edu-content p { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
-  .edu-content ul { list-style: none; padding: 0; }
-  .edu-content ul li {
-    font-size: 13px; color: var(--text-muted); line-height: 1.7;
-    padding: 4px 0 4px 16px; position: relative;
-  }
-  .edu-content ul li::before {
-    content: ''; position: absolute; left: 0; top: 13px;
-    width: 5px; height: 5px; border-radius: 50%;
-    background: var(--accent-light); opacity: 0.5;
-  }
+  .edu-content p { font-size: 13px; color: var(--text-muted); }
 
   /* ─── CONTACT ─── */
   .contact {
@@ -358,18 +342,8 @@
       <div class="exp-content">
         <h3>Generative AI Engineer</h3>
         <div class="company">Convai — London</div>
-        <div class="role-intro">Joined as founding AI engineer and designed the company's core GenAI platform from scratch, owning the full architecture from agent design through to production deployment — including agentic orchestration layers, multimodal ingestion, and enterprise compliance infrastructure.</div>
-        <ul>
-          <li>Designed and built an agentic orchestration layer supporting tool-calling agents with multi-turn memory, structured reasoning, and dynamic retrieval — enabling agents to autonomously navigate knowledge graphs, invoke search tools, and generate citation-grounded outputs across diverse document types and modalities.</li>
-          <li>Architected and deployed an end-to-end RAG + Knowledge Graph platform for organisational reporting, supporting dual deployment on AWS Lambda/API Gateway and EC2/Uvicorn, processing 1,000+ documents across 8 file formats with automated OCR, chunking, and embedding generation.</li>
-          <li>Engineered a hybrid retrieval system combining dense vector search (Chroma, Qdrant, pgvector) with BM25 lexical retrieval, Reciprocal Rank Fusion, and reranking — achieving approximately 25% improvement in retrieval recall over dense-only baselines for long-form, citation-grounded report generation.</li>
-          <li>Designed a portable Knowledge Graph schema (Neo4j, pure Cypher) with deterministic idempotent upserts and full provenance traceability to document/page/chunk level; built entity resolution, subgraph retrieval, and YAML-driven scoring pipelines that reduced hallucination rates through structured, auditable source attribution.</li>
-          <li>Built a production FastAPI backend with OpenAPI-validated contracts, JWT/API-key authentication with route-level RBAC, multi-tenant isolation, and Celery-based async job processing — handling concurrent workloads across 5+ tenants with retry logic, progress tracking, and audit logging.</li>
-          <li>Integrated AWS services (EC2, Lambda, S3, Secrets Manager, API Gateway) with a storage abstraction layer supporting atomic local writes and S3 with presigned URLs; implemented PII detection/masking, prompt firewall rules, and policy-driven capability gating for enterprise compliance.</li>
-          <li>Established production observability stack: structured JSON logging, OpenTelemetry tracing, LangSmith/LangChain integration, and Prometheus-style metrics; authored Docker Compose infrastructure and operational runbooks, reducing mean incident response time by approximately 40%.</li>
-        </ul>
+        <p>Joined as a founding AI engineer and built the company's core AI platform from the ground up. Architected an end-to-end RAG + Knowledge Graph platform for organisational reporting, processing 1,000+ documents across 8 file formats. Engineered hybrid retrieval combining dense vector search (Chroma, Qdrant, pgvector) with BM25 and reranking. Designed a portable Knowledge Graph schema (Neo4j) with full provenance traceability and entity resolution. Built production FastAPI backend with JWT/RBAC auth, multi-tenant isolation, and Celery-based async processing across 5+ tenants.</p>
         <div class="tags">
-          <span class="tag">Agentic AI</span>
           <span class="tag">RAG</span>
           <span class="tag">Knowledge Graphs</span>
           <span class="tag">Neo4j</span>
@@ -377,7 +351,6 @@
           <span class="tag">AWS</span>
           <span class="tag">LLMs</span>
           <span class="tag">Celery</span>
-          <span class="tag">OpenTelemetry</span>
         </div>
       </div>
     </div>
@@ -387,40 +360,27 @@
       <div class="exp-content">
         <h3>Lead AI Developer</h3>
         <div class="company">Permia Sensing — London</div>
-        <div class="role-intro">Joined as lead AI developer, taking ownership of the core AI package and driving it from prototype to production-ready, deploying geospatial vision models for real-world environmental and agricultural monitoring from UAV and satellite imagery.</div>
-        <ul>
-          <li>Led end-to-end geospatial vision projects from model development to deployment, delivering 3 production vision models on schedule for object detection, health classification, and yield prediction across large-scale aerial and satellite datasets.</li>
-          <li>Designed and implemented geospatial deep learning pipelines in Python and PyTorch, achieving 92%+ classification accuracy across diverse operational conditions, terrain types, and imaging modalities.</li>
-          <li>Built scalable geospatial inference workflows processing 1,000+ images per batch, generating spatial risk maps, health scores, and forecast reports packaged into client-facing dashboards for decision support.</li>
-          <li>Automated geospatial data processing pipelines, reducing manual preprocessing time by approximately 60% and enabling efficient analysis of large-scale multi-spectral and high-resolution imagery datasets.</li>
-          <li>Conducted extensive model validation and uncertainty analysis to ensure robustness, transparency, and reliability of predictive outputs across varied environmental conditions.</li>
-        </ul>
+        <p>Joined this early-stage startup mid-development, taking ownership of the core AI package and driving it from prototype to production. Led end-to-end AI projects delivering 3 production models for object detection, health classification, and yield prediction. Designed deep learning pipelines using ResNet-based architectures achieving 92%+ classification accuracy on high-resolution imagery and UAV data. Built scalable inference workflows processing 1,000+ images per batch.</p>
         <div class="tags">
           <span class="tag">PyTorch</span>
-          <span class="tag">Computer Vision</span>
-          <span class="tag">Geospatial AI</span>
+          <span class="tag">ResNet</span>
           <span class="tag">Object Detection</span>
+          <span class="tag">Computer Vision</span>
           <span class="tag">MLOps</span>
         </div>
       </div>
     </div>
 
     <div class="exp-item">
-      <div class="exp-date">2020 — 2022</div>
+      <div class="exp-date">2017 — 2021</div>
       <div class="exp-content">
         <h3>Research and Development</h3>
         <div class="company">University of Tehran — Tehran, Iran</div>
-        <ul>
-          <li>Led the design and development of AI-based tools and data-driven workflows, applying supervised and unsupervised machine learning models to improve prediction accuracy, pattern detection, and impact assessment for industry and public-sector applications.</li>
-          <li>Developed and deployed end-to-end ML solutions using Python, scikit-learn, PyTorch, and xarray, integrating large-scale datasets from multiple sources to enhance risk assessment, scenario evaluation, and decision-support systems.</li>
-          <li>Contributed to cross-functional projects translating complex data into operational insights for government agencies, NGOs, and international development partners, bridging AI research with real-world industry needs.</li>
-          <li>Collaborated closely with domain experts and data science teams to validate AI models and ensure their relevance, robustness, and usability in applied contexts.</li>
-        </ul>
+        <p>Led design and development of AI-based tools and data-driven workflows, applying supervised and unsupervised ML models for prediction accuracy, pattern detection, and impact assessment. Deployed end-to-end ML solutions using Python, scikit-learn, PyTorch, and xarray, integrating large-scale datasets for risk assessment and decision-support systems. Contributed to cross-functional projects for government agencies, NGOs, and international development partners.</p>
         <div class="tags">
           <span class="tag">Machine Learning</span>
           <span class="tag">PyTorch</span>
           <span class="tag">scikit-learn</span>
-          <span class="tag">xarray</span>
           <span class="tag">Data Science</span>
           <span class="tag">Research</span>
         </div>
@@ -429,10 +389,10 @@
   </div>
 </div>
 
-<!-- Selected GenAI Systems -->
+<!-- Projects -->
 <div class="section" id="projects">
   <div class="container">
-    <div class="section-label">Selected GenAI Systems Designed</div>
+    <div class="section-label">Projects</div>
     <h2>What I've built</h2>
 
     <!-- GraphAlpha Demo Video -->
@@ -452,12 +412,7 @@
           <h3>GraphAlpha</h3>
           <span class="project-type platform">Platform</span>
         </div>
-        <div class="project-subtitle">Temporal Graph + LLM Platform for Corporate Risk Prediction</div>
-        <ul>
-          <li>Designed a Temporal Graph Neural Network platform modelling the S&P 500 as a dynamic multi-relational network (503 companies, five edge types spanning supply chain, shared investors, sector, momentum, and board overlaps) to detect early signals of financial distress — consistently outperforming MLP, Static GNN, TGN, and TGAT baselines across 10 out-of-sample quarters.</li>
-          <li>Built an LLM-augmented feature layer using GPT-extracted sentiment, risk phrases, and tone from 10-K/10-Q filings, combined with an earnings call drift detector tracking quarter-over-quarter shifts in management language — extending the "Lazy Prices" signal from filings to transcripts and fusing these features directly into the temporal graph.</li>
-          <li>Delivered an interactive risk platform with ranked watchlists across 503 companies, animated network graphs of risk pathways, per-company deep dives (risk gauge, feature attribution, neighbour graph), and an explainable AI analyst with Q&A grounded in model attribution rather than generic summaries.</li>
-        </ul>
+        <p>A Temporal Graph Neural Network platform for corporate stress prediction across the S&P 500. Combines temporal graph attention, LLM-augmented features, and NLP drift detection to identify financial distress signals before traditional models react. Models 503 companies as an interconnected network capturing supply-chain dependencies and investor relationships.</p>
         <div class="project-tags">
           <span class="tag">Temporal GNN</span>
           <span class="tag">LLM</span>
@@ -468,85 +423,36 @@
         <a class="project-link" href="https://github.com/zahirnik/GraphAlpha" target="_blank">View on GitHub &rarr;</a>
       </div>
 
-      <!-- GateKeeper AI -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3>GateKeeper AI</h3>
-          <span class="project-type agent">Agent</span>
-        </div>
-        <div class="project-subtitle">Enterprise Regulatory Compliance Agent Platform</div>
-        <ul>
-          <li>Architected a multi-agent microservices platform (6 services) with a dedicated Agent Runtime as a first-class service — responsible for LLM orchestration, semantic search, tool dispatch, and knowledge graph navigation across compliance domains.</li>
-          <li>Designed event-driven agentic pipelines (Kafka) for real-time policy evaluation, rule extraction from regulatory documents, and compliance scoring, with a tamper-proof cryptographic audit chain (SHA-256) and per-tenant encrypted data isolation.</li>
-          <li>Built domain pack system enabling agents to load jurisdiction-specific regulatory knowledge dynamically, supporting multi-tenant enterprise deployments with RBAC and YAML-driven policy gating.</li>
-        </ul>
-        <div class="project-tags">
-          <span class="tag">Multi-Agent</span>
-          <span class="tag">Kafka</span>
-          <span class="tag">Compliance</span>
-          <span class="tag">LLM</span>
-          <span class="tag">RBAC</span>
-        </div>
-      </div>
-
-      <!-- RadSentinel -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3>RadSentinel</h3>
-          <span class="project-type platform">Platform</span>
-        </div>
-        <div class="project-subtitle">Multimodal Radiology Intelligence Platform</div>
-        <ul>
-          <li>Designed a multimodal AI platform combining medical image analysis (DICOM/vision) with clinical text report intelligence — integrating an Orthanc DICOM server, PyTorch AI service, and FHIR-based EHR connector into a unified inference pipeline.</li>
-          <li>Architected end-to-end pipelines for AI-powered pathology detection, incidental finding tracking, and structured report generation, spanning a Next.js web UI, FastAPI backend, and Flutter mobile app.</li>
-        </ul>
-        <div class="project-tags">
-          <span class="tag">Multimodal AI</span>
-          <span class="tag">DICOM</span>
-          <span class="tag">FHIR</span>
-          <span class="tag">PyTorch</span>
-          <span class="tag">Next.js</span>
-        </div>
-      </div>
-
       <!-- CareFlow AI -->
       <div class="project-card">
         <div class="project-header">
           <h3>CareFlow AI</h3>
           <span class="project-type platform">Platform</span>
         </div>
-        <div class="project-subtitle">Healthcare AI Platform</div>
-        <ul>
-          <li>Designed a production-grade healthcare AI platform with a FastAPI backend, mobile (Flutter) and web frontends, and compliance-grade infrastructure spanning architecture, API, and regulatory documentation.</li>
-          <li>Built multi-environment deployment infrastructure (Docker Compose prod/dev) and a storage abstraction layer, with full compliance documentation for healthcare data governance requirements.</li>
-        </ul>
+        <p>An AI-powered operating system for home care agencies. Voice-to-notes clinical documentation, EVV compliance automation across 50+ state jurisdictions, AI-generated care plans, and clinical intelligence — designed to reduce the 40% of caregiver time spent on admin work.</p>
         <div class="project-tags">
           <span class="tag">FastAPI</span>
-          <span class="tag">Flutter</span>
-          <span class="tag">Docker</span>
-          <span class="tag">Healthcare</span>
+          <span class="tag">React Native</span>
+          <span class="tag">LLM</span>
+          <span class="tag">HIPAA</span>
+          <span class="tag">Celery</span>
         </div>
         <a class="project-link" href="https://github.com/zahirnik/careflow-ai" target="_blank">View on GitHub &rarr;</a>
       </div>
 
-      <!-- Legal Agent -->
+      <!-- GateKeeper AI -->
       <div class="project-card">
         <div class="project-header">
-          <h3>Legal Agent</h3>
+          <h3>GateKeeper AI</h3>
           <span class="project-type agent">Agent</span>
         </div>
-        <div class="project-subtitle">Agentic Contract Review System</div>
-        <ul>
-          <li>Built a fully agentic contract review system with tool-calling agents, multi-turn conversational memory, and structured reasoning — agents autonomously invoke search, analysis, and comparison tools to classify 21+ clause types, score risk, and detect missing clauses.</li>
-          <li>Designed a hybrid intelligence layer combining RAG (ChromaDB vector search) with a Neo4j knowledge graph of market-standard benchmarks, enabling agents to ground outputs in structured legal precedent and generate downloadable PDF risk reports.</li>
-        </ul>
+        <p>A regulatory compliance agent platform that uses multi-agent orchestration to automate compliance checking, document review, and regulatory mapping. Agents collaborate to analyze documents against regulatory frameworks, flag violations, and generate compliance reports with full traceability.</p>
         <div class="project-tags">
-          <span class="tag">Agentic AI</span>
+          <span class="tag">Multi-Agent</span>
           <span class="tag">RAG</span>
-          <span class="tag">Neo4j</span>
-          <span class="tag">ChromaDB</span>
+          <span class="tag">Compliance</span>
+          <span class="tag">LLM</span>
         </div>
-        <a class="project-link" href="https://github.com/zahirnik/legal-agent" target="_blank">View on GitHub &rarr;</a>
       </div>
 
       <!-- DocWeave -->
@@ -555,11 +461,7 @@
           <h3>DocWeave</h3>
           <span class="project-type tool">Tool</span>
         </div>
-        <div class="project-subtitle">Agentic RAG Document Intelligence</div>
-        <ul>
-          <li>An agentic RAG package that turns complex documents into grounded, explainable answers. Supports PDFs, spreadsheets, JSON, and text with hybrid retrieval and graph-based orchestration.</li>
-          <li>Built for production with API-first integration and multi-tenant patterns.</li>
-        </ul>
+        <p>An agentic RAG package that turns complex documents into grounded, explainable answers. Supports PDFs, spreadsheets, JSON, and text with hybrid retrieval and graph-based orchestration. Built for production with API-first integration and multi-tenant patterns.</p>
         <div class="project-tags">
           <span class="tag">RAG</span>
           <span class="tag">Agentic</span>
@@ -567,6 +469,22 @@
           <span class="tag">API</span>
         </div>
         <a class="project-link" href="https://github.com/zahirnik/DocWeave" target="_blank">View on GitHub &rarr;</a>
+      </div>
+
+      <!-- Legal Agent -->
+      <div class="project-card full-width">
+        <div class="project-header">
+          <h3>Legal Agent</h3>
+          <span class="project-type agent">Agent</span>
+        </div>
+        <p>An AI-powered package for legal research, document analysis, and grounded question answering. Combines retrieval and reasoning workflows to help teams produce faster, more reliable legal outputs with clear traceability and audit-friendly results.</p>
+        <div class="project-tags">
+          <span class="tag">Legal AI</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Document Analysis</span>
+          <span class="tag">Reasoning</span>
+        </div>
+        <a class="project-link" href="https://github.com/zahirnik/legal-agent" target="_blank">View on GitHub &rarr;</a>
       </div>
 
     </div>
@@ -581,43 +499,41 @@
 
     <div class="skills-grid">
       <div class="skill-group">
-        <h4>AI / GenAI</h4>
+        <h4>AI / ML</h4>
         <ul>
-          <li>Agentic AI / Tool-Calling Agent Design</li>
-          <li>Multi-Agent Orchestration</li>
-          <li>Multimodal AI (Vision + Language + Voice)</li>
           <li>RAG Pipeline Design</li>
           <li>Knowledge Graphs (Neo4j, Cypher)</li>
           <li>Large Language Models</li>
           <li>Deep Learning Architecture Design</li>
           <li>Vector Stores (Chroma, Qdrant, pgvector)</li>
           <li>Hybrid Retrieval & Reranking</li>
+          <li>CNNs / Transformers / Diffusion</li>
+          <li>LangChain / LangSmith</li>
+          <li>Hugging Face</li>
         </ul>
       </div>
       <div class="skill-group">
         <h4>Engineering</h4>
         <ul>
-          <li>LangChain / LangSmith / LLM Function Calling</li>
-          <li>FastAPI / REST API Design</li>
-          <li>Docker / Celery / Redis / Kafka</li>
-          <li>AWS (EC2, Lambda, S3, API Gateway)</li>
           <li>Python / PyTorch / TensorFlow</li>
-          <li>CNNs / Transformers / Diffusion Models</li>
-          <li>Hugging Face / OpenAI / Anthropic APIs</li>
+          <li>FastAPI / REST API Design</li>
+          <li>Docker / Celery / Redis</li>
+          <li>AWS (EC2, Lambda, S3, API Gateway)</li>
+          <li>PostgreSQL</li>
+          <li>OpenTelemetry / Prometheus</li>
           <li>HPC Clusters (SLURM, GPU scheduling)</li>
-          <li>OpenTelemetry / Prometheus / PostgreSQL</li>
         </ul>
       </div>
       <div class="skill-group">
         <h4>Interests</h4>
         <ul>
-          <li>Agentic AI System Design: tool-calling agents, multi-agent orchestration, and memory architectures</li>
-          <li>Multimodal GenAI: vision-language-voice model integration and real-world deployment</li>
-          <li>End-to-End ML Engineering and MLOps for Production AI</li>
-          <li>LLM Application Architecture, RAG Systems, and Knowledge Graph-Augmented Retrieval</li>
-          <li>Scalable Deep Learning and Distributed Training on HPC/GPU Clusters</li>
-          <li>Robust, Explainable, and Safety-Aware AI for Healthcare, Legal, and Enterprise Applications</li>
-          <li>Open-Source AI Tooling and the UK Generative AI Ecosystem</li>
+          <li>Scalable Deep Learning & Distributed Training</li>
+          <li>End-to-End ML Engineering & MLOps</li>
+          <li>LLM Architecture & Agentic AI Workflows</li>
+          <li>Model Deployment & Cloud-Native ML</li>
+          <li>Robust, Explainable & Safety-Aware AI</li>
+          <li>RAG & Knowledge Graph for Enterprise</li>
+          <li>Open-Source AI Tooling</li>
         </ul>
       </div>
     </div>
@@ -635,12 +551,7 @@
       <div class="edu-content">
         <h3>PhD in Computer Science</h3>
         <div class="school">Queen Mary University of London (Russell Group)</div>
-        <p>Fully funded PhD scholarship awarded by Google DeepMind</p>
-        <ul>
-          <li>Designed and developed advanced deep learning architectures — including large-scale CNNs, Transformers, and Diffusion models — to solve complex, high-dimensional real-world prediction problems across multiple application domains, with a focus on building scalable, interpretable AI systems that bridge the gap between research innovation and production deployment.</li>
-          <li>Engineered custom loss functions and training strategies to optimise model performance under domain-specific constraints, demonstrating the ability to tailor AI solutions to diverse operational requirements in applied settings.</li>
-          <li>Trained and evaluated large-scale models on HPC clusters (multi-GPU, SLURM-managed), building end-to-end workflows for data preprocessing, distributed training, hyperparameter tuning, and reproducible experimentation at scale.</li>
-        </ul>
+        <p>Fully funded PhD scholarship awarded by Google DeepMind. Designed and developed advanced deep learning architectures — including large-scale CNNs, Transformers, and Diffusion models — to solve complex, high-dimensional prediction problems. Engineered custom loss functions and training strategies for domain-specific constraints. Trained and evaluated large-scale models on HPC clusters (multi-GPU, SLURM-managed) with end-to-end workflows for distributed training and reproducible experimentation at scale.</p>
       </div>
     </div>
 
