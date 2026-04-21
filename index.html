@@ -131,6 +131,23 @@
     border: 1px solid var(--border); color: var(--text-muted);
   }
 
+  /* ─── DEMO VIDEO ─── */
+  .demo-video {
+    margin-bottom: 48px;
+  }
+  .demo-video video {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 40px rgba(99,102,241,0.1);
+  }
+  .demo-video .caption {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 12px;
+  }
+
   /* ─── PROJECTS ─── */
   .projects-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
@@ -321,6 +338,15 @@
   <div class="container">
     <div class="section-label">Projects</div>
     <h2>What I've built</h2>
+
+    <!-- GraphAlpha Demo Video -->
+    <div class="demo-video">
+      <video controls autoplay muted loop playsinline>
+        <source src="graphalpha-demo.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">GraphAlpha — Temporal Graph Neural Network platform for corporate stress prediction</p>
+    </div>
 
     <div class="projects-grid">
 
