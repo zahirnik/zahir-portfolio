@@ -60,39 +60,40 @@
   /* ─── NAV ─── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(8,10,18,0.92);
+    background: rgba(246,245,245,0.92);
     backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid var(--border);
   }
   nav .inner {
     max-width: 900px; margin: 0 auto; padding: 0 24px;
     display: flex; align-items: center; justify-content: space-between;
     height: 56px;
   }
-  nav .logo { font-weight: 700; font-size: 16px; letter-spacing: -0.3px; color: #fff; }
+  nav .logo { font-weight: 700; font-size: 16px; letter-spacing: -0.3px; color: var(--text); }
   nav .links { display: flex; gap: 28px; }
   nav .links a {
-    font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.55);
+    font-size: 13px; font-weight: 500; color: var(--text-muted);
     transition: color 0.2s;
   }
-  nav .links a:hover { color: #fff; }
+  nav .links a:hover { color: var(--text); }
 
-  /* ─── HERO — DARK ─── */
+  /* ─── HERO ─── */
   .hero {
     position: relative;
     padding: 140px 0 100px;
-    background: #080a12;
+    background: var(--bg);
     overflow: hidden;
     z-index: 1;
+    border-bottom: 1px solid var(--border);
   }
   .hero .container { position: relative; z-index: 2; }
   .hero .label {
     display: inline-flex; align-items: center; gap: 8px;
     font-size: 12px; font-weight: 600; text-transform: uppercase;
-    letter-spacing: 1.5px; color: #34d399; margin-bottom: 20px;
+    letter-spacing: 1.5px; color: var(--green); margin-bottom: 20px;
   }
   .hero .label .dot {
-    width: 6px; height: 6px; border-radius: 50%; background: #34d399;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--green);
     animation: pulse 2s ease-in-out infinite;
   }
   @keyframes pulse {
@@ -101,14 +102,14 @@
   }
   .hero h1 {
     font-size: 52px; font-weight: 800; line-height: 1.1;
-    letter-spacing: -1.5px; margin-bottom: 20px; color: #fff;
+    letter-spacing: -1.5px; margin-bottom: 20px; color: var(--text);
   }
   .hero h1 .gradient {
-    background: linear-gradient(135deg, #818cf8, #06b6d4, #34d399);
+    background: linear-gradient(135deg, var(--accent), var(--green));
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
   .hero .subtitle {
-    font-size: 17px; color: rgba(255,255,255,0.6); max-width: 100%;
+    font-size: 17px; color: var(--text-muted); max-width: 100%;
     line-height: 1.8; margin-bottom: 36px; text-align: justify;
   }
 
@@ -271,14 +272,15 @@
   /* ─── CONTACT ─── */
   .contact {
     padding: 80px 0;
-    background: #080a12;
+    background: var(--bg);
     text-align: center;
     position: relative; z-index: 1;
+    border-top: 1px solid var(--border);
   }
-  .contact .section-label { color: #06b6d4; }
-  .contact h2 { color: #fff; margin-bottom: 16px; }
+  .contact .section-label { color: var(--accent-light); }
+  .contact h2 { color: var(--text); margin-bottom: 16px; }
   .contact p.contact-desc {
-    font-size: 16px; color: rgba(255,255,255,0.6);
+    font-size: 16px; color: var(--text-muted);
     max-width: 520px; margin: 0 auto 36px; line-height: 1.7;
   }
   .contact .contact-links {
@@ -300,22 +302,22 @@
   }
   .contact .contact-links .btn-outline {
     background: transparent;
-    color: rgba(255,255,255,0.7);
-    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
   }
   .contact .contact-links .btn-outline:hover {
-    border-color: #4f46e5; color: #fff;
-    background: rgba(79,70,229,0.1);
+    border-color: var(--accent); color: var(--text);
+    background: var(--surface);
   }
 
   /* ─── FOOTER ─── */
   footer {
     padding: 30px 0;
     text-align: center;
-    background: #080a12;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    background: var(--bg);
+    border-top: 1px solid var(--border);
   }
-  footer p { font-size: 13px; color: rgba(255,255,255,0.35); }
+  footer p { font-size: 13px; color: var(--text-muted); }
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
@@ -627,8 +629,6 @@
           <li>End-to-End ML Engineering and MLOps for Production AI</li>
           <li>LLM Application Architecture, RAG Systems, and Knowledge Graph-Augmented Retrieval</li>
           <li>Scalable Deep Learning and Distributed Training on HPC/GPU Clusters</li>
-          <li>Robust, Explainable, and Safety-Aware AI for Healthcare, Legal, and Enterprise Applications</li>
-          <li>Open-Source AI Tooling and the UK Generative AI Ecosystem</li>
         </ul>
       </div>
     </div>
