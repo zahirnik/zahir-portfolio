@@ -355,7 +355,7 @@
     <div class="label"><span class="dot"></span> Available for opportunities</div>
     <h1>Zahir Nikraftar<br/><span class="gradient">Generative AI Engineer</span></h1>
     <p class="subtitle">
-      Generative AI Engineer and systems architect with a Computer Science PhD from Queen Mary University of London (Russell Group, Google DeepMind funded) and 7 years of experience spanning AI research, deep learning, and production GenAI engineering. I specialise in designing and building multimodal agentic AI systems — end-to-end platforms that combine voice, vision, and language through tool-calling agents, knowledge graph-augmented retrieval, and multi-agent orchestration. My work spans the full GenAI stack: from designing agent runtimes and agentic pipelines with memory and tool use, to multimodal pipelines processing imagery, clinical data, and documents, through to scalable production deployment on AWS. I have architected multiple AI-native products from the ground up — including regulatory compliance agents, medical imaging intelligence platforms, and contract review agents — translating frontier research into robust, explainable systems for enterprise, healthcare, and legal applications.
+      Final-year Computer Science PhD at Queen Mary University of London, fully funded by a Google DeepMind scholarship. My research focuses on deep learning for probabilistic time series forecasting — CNNs, Transformers, Informer-style temporal encoders, and diffusion models for high-dimensional sequential prediction. I care about the unglamorous details that determine whether a model actually works in production: ablation methodology, walk-forward validation, and calibration under distribution shift. In parallel, as founding Generative AI Engineer at Convai (London), I ship production agentic AI systems — tool-calling agents with multi-turn memory, hybrid retrieval, and knowledge graph–augmented retrieval for enterprise financial document intelligence, deployed on AWS. Outside the PhD, finance is where I keep coming back: temporal graph neural networks for equity ranking, LLM-augmented alpha factors from regulatory filings, and graph-based AML/KYC transaction monitoring. Quantitative research, regulatory compliance, and explainable AI for risk and alpha is where I want my next chapter.
     </p>
   </div>
 </div>
@@ -479,6 +479,28 @@
           <span class="tag">FastAPI</span>
         </div>
         <a class="project-link" href="https://github.com/zahirnik/GraphAlpha" target="_blank">View on GitHub &rarr;</a>
+      </div>
+
+      <!-- Constellation-Quant -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Constellation-Quant</h3>
+          <span class="project-type platform">Research</span>
+        </div>
+        <div class="project-subtitle">Temporal Graph Neural Network for Cross-Sectional S&amp;P 500 Ranking</div>
+        <ul>
+          <li>Built a cross-sectional ranking system for ~503 S&amp;P 500 stocks predicting 5-day forward returns across 35 years of history (1990–2024), with time-stamped index membership to eliminate survivorship bias. Five temporal encoders and four graph architectures implemented as interchangeable modules for systematic architectural comparison.</li>
+          <li>Designed the production variant as a multi-relational R-GAT with an Informer temporal encoder, hierarchical sector/market super-nodes, and gated fusion of fast and slow feature branches — right-sized to 280k parameters from an original 2.5M after diagnosing overfit dynamics. Three portfolio constructors (equal-weight, risk-parity, sector-neutral) handle position sizing under turnover constraints.</li>
+          <li>Trained with an IC-maximisation loss as a direct surrogate for the ranking metric, which broke a stubborn val IC plateau at ~0.011. Validated through a 9-variant ablation with paired t-tests, Diebold-Mariano, and bootstrap Sharpe — achieving val IC 0.0284, IR 0.213, hit@50 60.9%, +30 bps per 5-day spread (gross Sharpe ~1.0), at or above the published ceiling for free-data baselines (Sawhney 2021, HIST 2021). 65 SLURM jobs on A100 GPUs, 224 unit tests.</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">Temporal GNN</span>
+          <span class="tag">R-GAT</span>
+          <span class="tag">Informer</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">SLURM</span>
+        </div>
+        <a class="project-link" href="https://github.com/zahirnik/constellation-quant" target="_blank">View on GitHub &rarr;</a>
       </div>
 
       <!-- GateKeeper AI -->
