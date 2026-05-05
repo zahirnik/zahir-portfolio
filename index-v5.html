@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zahir Nikraftar — Generative AI Engineer</title>
+<meta name="description" content="Zahir Nikraftar — Generative AI Engineer and PhD Researcher building LLM systems, agentic AI, and applied deep learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #F6F5F5;
+    --surface: #ffffff;
+    --surface-2: #eeeded;
+    --border: #e0dfdf;
+    --text: #1a1a1d;
+    --text-muted: #6b6b75;
+    --accent: #4f46e5;
+    --accent-light: #4f46e5;
+    --green: #0d9468;
+    --amber: #b45309;
+    --cyan: #06b6d4;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ─── FLOATING PARTICLES ─── */
+  .floating-bg {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0; overflow: hidden;
+  }
+  .floating-bg .particle {
+    position: absolute;
+    font-size: 28px;
+    opacity: 0.13;
+    animation: floatUp linear infinite;
+    will-change: transform;
+    filter: saturate(1.4);
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(110vh) rotate(0deg) scale(1); }
+    50% { transform: translateY(50vh) rotate(180deg) scale(1.1); }
+    100% { transform: translateY(-10vh) rotate(360deg) scale(1); }
+  }
+
+  a { color: var(--accent-light); text-decoration: none; transition: color 0.2s; }
+  a:hover { color: #7c3aed; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(246,245,245,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .inner {
+    max-width: 900px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  nav .logo { font-weight: 700; font-size: 16px; letter-spacing: -0.3px; color: var(--text); }
+  nav .links { display: flex; gap: 28px; }
+  nav .links a {
+    font-size: 13px; font-weight: 500; color: var(--text-muted);
+    transition: color 0.2s;
+  }
+  nav .links a:hover { color: var(--text); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    padding: 140px 0 100px;
+    background: var(--bg);
+    overflow: hidden;
+    z-index: 1;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero .container { position: relative; z-index: 2; }
+  .hero .label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 1.5px; color: var(--green); margin-bottom: 20px;
+  }
+  .hero .label .dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--green);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .hero h1 {
+    font-size: 52px; font-weight: 800; line-height: 1.1;
+    letter-spacing: -1.5px; margin-bottom: 20px; color: var(--text);
+  }
+  .hero h1 .gradient {
+    background: linear-gradient(135deg, var(--accent), var(--green));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero .subtitle {
+    font-size: 17px; color: var(--text-muted); max-width: 100%;
+    line-height: 1.8; margin-bottom: 36px; text-align: justify;
+  }
+
+  /* ─── SECTION ─── */
+  nav, .hero, .section, .contact, footer { position: relative; z-index: 1; }
+  .section { padding: 80px 0; border-bottom: 1px solid var(--border); background: var(--bg); }
+  .section:last-child { border-bottom: none; }
+  .section-label {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 2px; color: var(--accent-light); margin-bottom: 12px;
+  }
+  .section h2 {
+    font-size: 28px; font-weight: 700; letter-spacing: -0.5px;
+    margin-bottom: 40px;
+  }
+
+  /* ─── EXPERIENCE ─── */
+  .exp-item {
+    display: grid; grid-template-columns: 200px 1fr; gap: 24px;
+    margin-bottom: 40px; padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .exp-date {
+    font-size: 13px; color: var(--text-muted); font-weight: 500;
+    padding-top: 2px;
+  }
+  .exp-content h3 { font-size: 18px; font-weight: 700; margin-bottom: 2px; }
+  .exp-content .company { font-size: 14px; color: var(--accent-light); margin-bottom: 10px; }
+  .exp-content .role-intro { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 12px; font-style: italic; text-align: justify; }
+  .exp-content ul { list-style: none; padding: 0; }
+  .exp-content ul li {
+    font-size: 13px; color: var(--text-muted); line-height: 1.7;
+    padding: 6px 0 6px 16px; position: relative; text-align: justify;
+  }
+  .exp-content ul li::before {
+    content: ''; position: absolute; left: 0; top: 14px;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent-light); opacity: 0.5;
+  }
+  .exp-content .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .tag {
+    font-size: 11px; font-weight: 600; padding: 4px 10px;
+    border-radius: 100px; background: var(--surface-2);
+    border: 1px solid var(--border); color: var(--text-muted);
+  }
+
+  /* ─── DEMO VIDEO ─── */
+  .demo-video {
+    margin-bottom: 48px;
+  }
+  .demo-video video {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+  }
+  .demo-video .caption {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 12px;
+  }
+
+  /* ─── PROJECTS ─── */
+  .projects-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    transition: all 0.25s;
+    display: flex; flex-direction: column;
+  }
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  }
+  .project-card .project-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .project-card h3 { font-size: 17px; font-weight: 700; }
+  .project-card .project-subtitle {
+    font-size: 12px; color: var(--accent-light); font-style: italic;
+    margin-bottom: 12px;
+  }
+  .project-card .project-type {
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; padding: 3px 8px; border-radius: 4px;
+  }
+  .project-type.platform { background: #eef2ff; color: var(--accent-light); }
+  .project-type.tool { background: #ecfdf5; color: var(--green); }
+  .project-type.agent { background: #fffbeb; color: var(--amber); }
+  .project-card ul { list-style: none; padding: 0; flex: 1; margin-bottom: 16px; }
+  .project-card ul li {
+    font-size: 12.5px; color: var(--text-muted); line-height: 1.6;
+    padding: 4px 0 4px 14px; position: relative; text-align: justify;
+  }
+  .project-card ul li::before {
+    content: ''; position: absolute; left: 0; top: 12px;
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--accent-light); opacity: 0.4;
+  }
+  .project-card .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .project-card .project-link {
+    font-size: 13px; font-weight: 600; color: var(--accent-light);
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .project-card .project-link:hover { color: #7c3aed; }
+  .project-card.full-width { grid-column: 1 / -1; }
+
+  /* ─── SKILLS ─── */
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .skill-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .skill-group h4 {
+    font-size: 13px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 14px; color: var(--accent-light);
+  }
+  .skill-group ul {
+    list-style: none;
+  }
+  .skill-group li {
+    font-size: 13px; color: var(--text-muted); padding: 4px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-group li:last-child { border-bottom: none; }
+
+  /* ─── EDUCATION ─── */
+  .edu-item {
+    display: grid; grid-template-columns: 200px 1fr; gap: 24px;
+    margin-bottom: 32px;
+  }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-date { font-size: 13px; color: var(--text-muted); font-weight: 500; padding-top: 2px; }
+  .edu-content h3 { font-size: 17px; font-weight: 700; margin-bottom: 2px; }
+  .edu-content .school { font-size: 14px; color: var(--accent-light); margin-bottom: 6px; }
+  .edu-content p { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; text-align: justify; }
+  .edu-content ul { list-style: none; padding: 0; }
+  .edu-content ul li {
+    font-size: 13px; color: var(--text-muted); line-height: 1.7;
+    padding: 4px 0 4px 16px; position: relative; text-align: justify;
+  }
+  .edu-content ul li::before {
+    content: ''; position: absolute; left: 0; top: 13px;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent-light); opacity: 0.5;
+  }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    padding: 80px 0;
+    background: var(--bg);
+    text-align: center;
+    position: relative; z-index: 1;
+    border-top: 1px solid var(--border);
+  }
+  .contact .section-label { color: var(--accent-light); }
+  .contact h2 { color: var(--text); margin-bottom: 16px; }
+  .contact p.contact-desc {
+    font-size: 16px; color: var(--text-muted);
+    max-width: 520px; margin: 0 auto 36px; line-height: 1.7;
+  }
+  .contact .contact-links {
+    display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+  }
+  .contact .contact-links a {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 15px; font-weight: 600; padding: 14px 28px;
+    border-radius: 10px; transition: all 0.25s;
+  }
+  .contact .contact-links a svg { width: 18px; height: 18px; }
+  .contact .contact-links .btn-primary {
+    background: linear-gradient(135deg, #4f46e5, #06b6d4);
+    color: #fff; border: none;
+  }
+  .contact .contact-links .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(6,182,212,0.3);
+  }
+  .contact .contact-links .btn-outline {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+  .contact .contact-links .btn-outline:hover {
+    border-color: var(--accent); color: var(--text);
+    background: var(--surface);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 30px 0;
+    text-align: center;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+  footer p { font-size: 13px; color: var(--text-muted); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 36px; }
+    .exp-item, .edu-item { grid-template-columns: 1fr; gap: 4px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    nav .links { gap: 16px; }
+    nav .links a { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Floating Background -->
+<div class="floating-bg" id="floatingBg"></div>
+
+<!-- Nav -->
+<nav>
+  <div class="inner">
+    <div class="logo">ZN</div>
+    <div class="links">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="container">
+    <div class="label"><span class="dot"></span> Available for opportunities</div>
+    <h1>Zahir Nikraftar<br/><span class="gradient">Generative AI Engineer</span></h1>
+    <p class="subtitle">
+      Generative AI Engineer and systems architect with a Computer Science PhD from Queen Mary University of London (Russell Group, Google DeepMind funded) and 7 years of experience spanning AI research, deep learning, and production GenAI engineering. I specialise in designing and building multimodal agentic AI systems — end-to-end platforms that combine voice, vision, and language through tool-calling agents, knowledge graph-augmented retrieval, and multi-agent orchestration. My work spans the full GenAI stack: from designing agent runtimes and agentic pipelines with memory and tool use, to multimodal pipelines processing imagery, clinical data, and documents, through to scalable production deployment on AWS. I have architected multiple AI-native products from the ground up — including regulatory compliance agents, medical imaging intelligence platforms, and contract review agents — translating frontier research into robust, explainable systems for enterprise, healthcare, and legal applications.
+    </p>
+  </div>
+</div>
+
+<!-- Experience -->
+<div class="section" id="experience">
+  <div class="container">
+    <div class="section-label">Experience</div>
+    <h2>Where I've worked</h2>
+
+    <div class="exp-item">
+      <div class="exp-date">Sep 2025 — Present</div>
+      <div class="exp-content">
+        <h3>Generative AI Engineer</h3>
+        <div class="company">Convai — London</div>
+        <div class="role-intro">Joined as founding AI engineer and designed the company's core GenAI platform from scratch, owning the full architecture from agent design through to production deployment — including agentic orchestration layers, multimodal ingestion, and enterprise compliance infrastructure.</div>
+        <ul>
+          <li>Designed and built an agentic orchestration layer supporting tool-calling agents with multi-turn memory, structured reasoning, and dynamic retrieval — enabling agents to autonomously navigate knowledge graphs, invoke search tools, and generate citation-grounded outputs across diverse document types and modalities.</li>
+          <li>Architected and deployed an end-to-end RAG + Knowledge Graph platform for organisational reporting, supporting dual deployment on AWS Lambda/API Gateway and EC2/Uvicorn, processing 1,000+ documents across 8 file formats with automated OCR, chunking, and embedding generation.</li>
+          <li>Engineered a hybrid retrieval system combining dense vector search (Chroma, Qdrant, pgvector) with BM25 lexical retrieval, Reciprocal Rank Fusion, and reranking — achieving approximately 25% improvement in retrieval recall over dense-only baselines for long-form, citation-grounded report generation.</li>
+          <li>Designed a portable Knowledge Graph schema (Neo4j, pure Cypher) with deterministic idempotent upserts and full provenance traceability to document/page/chunk level; built entity resolution, subgraph retrieval, and YAML-driven scoring pipelines that reduced hallucination rates through structured, auditable source attribution.</li>
+          <li>Built a production FastAPI backend with OpenAPI-validated contracts, JWT/API-key authentication with route-level RBAC, multi-tenant isolation, and Celery-based async job processing — handling concurrent workloads across 5+ tenants with retry logic, progress tracking, and audit logging.</li>
+          <li>Integrated AWS services (EC2, Lambda, S3, Secrets Manager, API Gateway) with a storage abstraction layer supporting atomic local writes and S3 with presigned URLs; implemented PII detection/masking, prompt firewall rules, and policy-driven capability gating for enterprise compliance.</li>
+          <li>Established production observability stack: structured JSON logging, OpenTelemetry tracing, LangSmith/LangChain integration, and Prometheus-style metrics; authored Docker Compose infrastructure and operational runbooks, reducing mean incident response time by approximately 40%.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Agentic AI</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Knowledge Graphs</span>
+          <span class="tag">Neo4j</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">AWS</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">Celery</span>
+          <span class="tag">OpenTelemetry</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">May 2024 — Present</div>
+      <div class="exp-content">
+        <h3>Lead AI Developer</h3>
+        <div class="company">Permia Sensing — London</div>
+        <div class="role-intro">Joined as lead AI developer, taking ownership of the core AI package and driving it from prototype to production-ready, deploying geospatial vision models for real-world environmental and agricultural monitoring from UAV and satellite imagery.</div>
+        <ul>
+          <li>Led end-to-end geospatial vision projects from model development to deployment, delivering 3 production vision models on schedule for object detection, health classification, and yield prediction across large-scale aerial and satellite datasets.</li>
+          <li>Designed and implemented geospatial deep learning pipelines in Python and PyTorch, achieving 92%+ classification accuracy across diverse operational conditions, terrain types, and imaging modalities.</li>
+          <li>Built scalable geospatial inference workflows processing 1,000+ images per batch, generating spatial risk maps, health scores, and forecast reports packaged into client-facing dashboards for decision support.</li>
+          <li>Automated geospatial data processing pipelines, reducing manual preprocessing time by approximately 60% and enabling efficient analysis of large-scale multi-spectral and high-resolution imagery datasets.</li>
+          <li>Conducted extensive model validation and uncertainty analysis to ensure robustness, transparency, and reliability of predictive outputs across varied environmental conditions.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">PyTorch</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">Geospatial AI</span>
+          <span class="tag">Object Detection</span>
+          <span class="tag">MLOps</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">2020 — 2022</div>
+      <div class="exp-content">
+        <h3>Research and Development</h3>
+        <div class="company">University of Tehran — Tehran, Iran</div>
+        <ul>
+          <li>Led the design and development of AI-based tools and data-driven workflows, applying supervised and unsupervised machine learning models to improve prediction accuracy, pattern detection, and impact assessment for industry and public-sector applications.</li>
+          <li>Developed and deployed end-to-end ML solutions using Python, scikit-learn, PyTorch, and xarray, integrating large-scale datasets from multiple sources to enhance risk assessment, scenario evaluation, and decision-support systems.</li>
+          <li>Contributed to cross-functional projects translating complex data into operational insights for government agencies, NGOs, and international development partners, bridging AI research with real-world industry needs.</li>
+          <li>Collaborated closely with domain experts and data science teams to validate AI models and ensure their relevance, robustness, and usability in applied contexts.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Machine Learning</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">xarray</span>
+          <span class="tag">Data Science</span>
+          <span class="tag">Research</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Selected GenAI Systems -->
+<div class="section" id="projects">
+  <div class="container">
+    <div class="section-label">Selected GenAI Systems Designed</div>
+    <h2>What I've built</h2>
+
+    <!-- GraphAlpha Demo Video -->
+    <div class="demo-video">
+      <video controls autoplay muted loop playsinline>
+        <source src="graphalpha-demo.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">GraphAlpha — Temporal Graph Neural Network platform for corporate stress prediction</p>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- GraphAlpha -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3>GraphAlpha</h3>
+          <span class="project-type platform">Platform</span>
+        </div>
+        <div class="project-subtitle">Temporal Graph + LLM Platform for Corporate Risk Prediction</div>
+        <ul>
+          <li>Designed a Temporal Graph Neural Network platform modelling the S&P 500 as a dynamic multi-relational network (503 companies, five edge types spanning supply chain, shared investors, sector, momentum, and board overlaps) to detect early signals of financial distress — consistently outperforming MLP, Static GNN, TGN, and TGAT baselines across 10 out-of-sample quarters.</li>
+          <li>Built an LLM-augmented feature layer using GPT-extracted sentiment, risk phrases, and tone from 10-K/10-Q filings, combined with an earnings call drift detector tracking quarter-over-quarter shifts in management language — extending the "Lazy Prices" signal from filings to transcripts and fusing these features directly into the temporal graph.</li>
+          <li>Delivered an interactive risk platform with ranked watchlists across 503 companies, animated network graphs of risk pathways, per-company deep dives (risk gauge, feature attribution, neighbour graph), and an explainable AI analyst with Q&A grounded in model attribution rather than generic summaries.</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">Temporal GNN</span>
+          <span class="tag">LLM</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">React</span>
+          <span class="tag">FastAPI</span>
+        </div>
+        <a class="project-link" href="https://github.com/zahirnik/GraphAlpha" target="_blank">View on GitHub &rarr;</a>
+      </div>
+
+      <!-- GateKeeper AI -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3>GateKeeper AI</h3>
+          <span class="project-type agent">Agent</span>
+        </div>
+        <div class="project-subtitle">Enterprise Regulatory Compliance Agent Platform</div>
+        <ul>
+          <li>Architected a multi-agent microservices platform (6 services) with a dedicated Agent Runtime as a first-class service — responsible for LLM orchestration, semantic search, tool dispatch, and knowledge graph navigation across compliance domains.</li>
+          <li>Designed event-driven agentic pipelines (Kafka) for real-time policy evaluation, rule extraction from regulatory documents, and compliance scoring, with a tamper-proof cryptographic audit chain (SHA-256) and per-tenant encrypted data isolation.</li>
+          <li>Built domain pack system enabling agents to load jurisdiction-specific regulatory knowledge dynamically, supporting multi-tenant enterprise deployments with RBAC and YAML-driven policy gating.</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">Multi-Agent</span>
+          <span class="tag">Kafka</span>
+          <span class="tag">Compliance</span>
+          <span class="tag">LLM</span>
+          <span class="tag">RBAC</span>
+        </div>
+      </div>
+
+      <!-- RadSentinel -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3>RadSentinel</h3>
+          <span class="project-type platform">Platform</span>
+        </div>
+        <div class="project-subtitle">Multimodal Radiology Intelligence Platform</div>
+        <ul>
+          <li>Designed a multimodal AI platform combining medical image analysis (DICOM/vision) with clinical text report intelligence — integrating an Orthanc DICOM server, PyTorch AI service, and FHIR-based EHR connector into a unified inference pipeline.</li>
+          <li>Architected end-to-end pipelines for AI-powered pathology detection, incidental finding tracking, and structured report generation, spanning a Next.js web UI, FastAPI backend, and Flutter mobile app.</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">Multimodal AI</span>
+          <span class="tag">DICOM</span>
+          <span class="tag">FHIR</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">Next.js</span>
+        </div>
+      </div>
+
+      <!-- CareFlow AI -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3>CareFlow AI</h3>
+          <span class="project-type platform">Platform</span>
+        </div>
+        <div class="project-subtitle">Healthcare AI Platform</div>
+        <ul>
+          <li>Designed a production-grade healthcare AI platform with a FastAPI backend, mobile (Flutter) and web frontends, and compliance-grade infrastructure spanning architecture, API, and regulatory documentation.</li>
+          <li>Built multi-environment deployment infrastructure (Docker Compose prod/dev) and a storage abstraction layer, with full compliance documentation for healthcare data governance requirements.</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">FastAPI</span>
+          <span class="tag">Flutter</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Healthcare</span>
+        </div>
+        <a class="project-link" href="https://github.com/zahirnik/careflow-ai" target="_blank">View on GitHub &rarr;</a>
+      </div>
+
+      <!-- Legal Agent -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Legal Agent</h3>
+          <span class="project-type agent">Agent</span>
+        </div>
+        <div class="project-subtitle">Agentic Contract Review System</div>
+        <ul>
+          <li>Built a fully agentic contract review system with tool-calling agents, multi-turn conversational memory, and structured reasoning — agents autonomously invoke search, analysis, and comparison tools to classify 21+ clause types, score risk, and detect missing clauses.</li>
+          <li>Designed a hybrid intelligence layer combining RAG (ChromaDB vector search) with a Neo4j knowledge graph of market-standard benchmarks, enabling agents to ground outputs in structured legal precedent and generate downloadable PDF risk reports.</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">Agentic AI</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Neo4j</span>
+          <span class="tag">ChromaDB</span>
+        </div>
+        <a class="project-link" href="https://github.com/zahirnik/legal-agent" target="_blank">View on GitHub &rarr;</a>
+      </div>
+
+      <!-- DocWeave -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3>DocWeave</h3>
+          <span class="project-type tool">Tool</span>
+        </div>
+        <div class="project-subtitle">Agentic RAG Document Intelligence</div>
+        <ul>
+          <li>An agentic RAG package that turns complex documents into grounded, explainable answers. Supports PDFs, spreadsheets, JSON, and text with hybrid retrieval and graph-based orchestration.</li>
+          <li>Built for production with API-first integration and multi-tenant patterns.</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">RAG</span>
+          <span class="tag">Agentic</span>
+          <span class="tag">Knowledge Graph</span>
+          <span class="tag">API</span>
+        </div>
+        <a class="project-link" href="https://github.com/zahirnik/DocWeave" target="_blank">View on GitHub &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Skills -->
+<div class="section" id="skills">
+  <div class="container">
+    <div class="section-label">Skills</div>
+    <h2>Technical expertise</h2>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>AI / GenAI</h4>
+        <ul>
+          <li>Agentic AI / Tool-Calling Agent Design</li>
+          <li>Multi-Agent Orchestration</li>
+          <li>Multimodal AI (Vision + Language + Voice)</li>
+          <li>RAG Pipeline Design</li>
+          <li>Knowledge Graphs (Neo4j, Cypher)</li>
+          <li>Large Language Models</li>
+          <li>Deep Learning Architecture Design</li>
+          <li>Vector Stores (Chroma, Qdrant, pgvector)</li>
+          <li>Hybrid Retrieval & Reranking</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Engineering</h4>
+        <ul>
+          <li>LangChain / LangSmith / LLM Function Calling</li>
+          <li>FastAPI / REST API Design</li>
+          <li>Docker / Celery / Redis / Kafka</li>
+          <li>AWS (EC2, Lambda, S3, API Gateway)</li>
+          <li>Python / PyTorch / TensorFlow</li>
+          <li>CNNs / Transformers / Diffusion Models</li>
+          <li>Hugging Face / OpenAI / Anthropic APIs</li>
+          <li>HPC Clusters (SLURM, GPU scheduling)</li>
+          <li>OpenTelemetry / Prometheus / PostgreSQL</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Interests</h4>
+        <ul>
+          <li>Agentic AI System Design: tool-calling agents, multi-agent orchestration, and memory architectures</li>
+          <li>Multimodal GenAI: vision-language-voice model integration and real-world deployment</li>
+          <li>End-to-End ML Engineering and MLOps for Production AI</li>
+          <li>LLM Application Architecture, RAG Systems, and Knowledge Graph-Augmented Retrieval</li>
+          <li>Scalable Deep Learning and Distributed Training on HPC/GPU Clusters</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Education -->
+<div class="section" id="education">
+  <div class="container">
+    <div class="section-label">Education</div>
+    <h2>Academic background</h2>
+
+    <div class="edu-item">
+      <div class="edu-date">2023 — 2026</div>
+      <div class="edu-content">
+        <h3>PhD in Computer Science</h3>
+        <div class="school">Queen Mary University of London (Russell Group)</div>
+        <p>Fully funded PhD scholarship awarded by Google DeepMind</p>
+        <ul>
+          <li>Designed and developed advanced deep learning architectures — including large-scale CNNs, Transformers, and Diffusion models — to solve complex, high-dimensional real-world prediction problems across multiple application domains, with a focus on building scalable, interpretable AI systems that bridge the gap between research innovation and production deployment.</li>
+          <li>Engineered custom loss functions and training strategies to optimise model performance under domain-specific constraints, demonstrating the ability to tailor AI solutions to diverse operational requirements in applied settings.</li>
+          <li>Trained and evaluated large-scale models on HPC clusters (multi-GPU, SLURM-managed), building end-to-end workflows for data preprocessing, distributed training, hyperparameter tuning, and reproducible experimentation at scale.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-date">2017 — 2019</div>
+      <div class="edu-content">
+        <h3>MSc in Computer Science</h3>
+        <div class="school">University of Tehran</div>
+        <p>Focused on AI and deep learning for applied data analysis, designing and implementing models for real-world industry and environmental applications.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Get in Touch -->
+<div class="contact" id="contact">
+  <div class="container">
+    <div class="section-label">Contact</div>
+    <h2>Get in Touch</h2>
+    <p class="contact-desc">Interested in collaborating, have a role in mind, or just want to talk AI? I'd love to hear from you.</p>
+    <div class="contact-links">
+      <a class="btn-primary" href="mailto:nikraftarz@gmail.com" onclick="event.preventDefault(); navigator.clipboard.writeText('nikraftarz@gmail.com'); this.innerHTML='Copied to clipboard!'; setTimeout(() => { this.innerHTML='<svg viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot; style=&quot;width:18px;height:18px&quot;><path d=&quot;M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z&quot;/></svg> Send an Email'; }, 2000);">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Send an Email
+      </a>
+      <a class="btn-outline" href="https://linkedin.com/in/zahir-nikraftar-088372b8" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a class="btn-outline" href="https://github.com/zahirnik" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>Zahir Nikraftar &middot; 2026</p>
+  </div>
+</footer>
+
+<script>
+(function() {
+  const items = [
+    { icon: '\u{1F9E0}' },  // brain
+    { icon: '\u{1F916}' },  // robot
+    { icon: '\u{1F4A1}' },  // lightbulb
+    { icon: '\u{1F52C}' },  // microscope
+    { icon: '\u{1F4BB}' },  // laptop
+    { icon: '\u{1F5A5}' },  // desktop
+    { icon: '\u{2699}\uFE0F' },  // gear
+    { icon: '\u{1F310}' },  // globe
+    { icon: '\u{1F517}' },  // link
+    { icon: '\u{1F4B0}' },  // money bag
+    { icon: '\u{1F4C8}' },  // chart up
+    { icon: '\u{1F4B3}' },  // credit card
+    { icon: '\u{1F3E6}' },  // bank
+    { icon: '\u{1F4CA}' },  // bar chart
+    { icon: '\u{26A1}' },   // lightning
+    { icon: '\u{1F680}' },  // rocket
+    { icon: '\u{1F50D}' },  // magnifier
+    { icon: '\u{2601}\uFE0F' },  // cloud
+    { icon: '\u{1F4E1}' },  // satellite
+    { icon: '\u{1F9EC}' },  // DNA
+  ];
+
+  const container = document.getElementById('floatingBg');
+  const count = 18;
+
+  for (let i = 0; i < count; i++) {
+    const item = items[Math.floor(Math.random() * items.length)];
+    const el = document.createElement('span');
+    el.className = 'particle';
+    el.textContent = item.icon;
+    el.style.left = Math.random() * 100 + '%';
+    el.style.fontSize = (22 + Math.random() * 18) + 'px';
+    el.style.opacity = 0.10 + Math.random() * 0.10;
+    el.style.animationDuration = (25 + Math.random() * 30) + 's';
+    el.style.animationDelay = -(Math.random() * 50) + 's';
+    container.appendChild(el);
+  }
+})();
+</script>
+</body>
+</html>
