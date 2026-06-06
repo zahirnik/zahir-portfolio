@@ -254,23 +254,57 @@
 
   /* ─── SKILLS ─── */
   .skills-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    display: flex; flex-direction: column; gap: 14px;
   }
   .skill-group {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 20px 22px;
+    padding: 22px 24px;
   }
   .skill-group h4 {
     font-size: 12px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 1px; margin-bottom: 10px; color: var(--accent-light);
+    letter-spacing: 1px; margin-bottom: 14px; color: var(--accent-light);
   }
-  .skill-group p {
-    font-size: 13px; color: var(--text-muted); line-height: 1.65;
-    margin: 0;
+  .skill-group p.skill-note {
+    font-size: 12.5px; color: var(--text-muted); line-height: 1.6;
+    margin: 12px 0 0; font-style: italic;
   }
-  .skill-group.full-width { grid-column: 1 / -1; }
+  .skill-chips {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .skill-chip {
+    position: relative;
+    font-size: 12.5px;
+    font-weight: 500;
+    padding: 7px 14px 7px 24px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    color: var(--text);
+    white-space: nowrap;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .skill-chip::before {
+    content: '';
+    position: absolute;
+    left: 11px; top: 50%;
+    transform: translateY(-50%);
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.45;
+    transition: opacity 0.2s ease;
+  }
+  .skill-chip:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.15);
+  }
+  .skill-chip:hover::before {
+    opacity: 1;
+  }
 
   /* ─── EDUCATION ─── */
   .edu-item {
@@ -661,52 +695,179 @@
 
       <div class="skill-group">
         <h4>Generative AI, Agents &amp; LLMs</h4>
-        <p>LLM-powered applications, Agentic AI, Tool-Calling Agents, Multi-Agent Orchestration, LangChain, LangGraph, LangSmith, OpenAI API, Hugging Face, Prompt Engineering, LLM Function Calling, Retrieval-Augmented Generation (RAG), Hybrid Retrieval, BM25, Reciprocal Rank Fusion, Reranking.</p>
+        <div class="skill-chips">
+          <span class="skill-chip">LLM-powered Applications</span>
+          <span class="skill-chip">Agentic AI</span>
+          <span class="skill-chip">Tool-Calling Agents</span>
+          <span class="skill-chip">Multi-Agent Orchestration</span>
+          <span class="skill-chip">LangChain</span>
+          <span class="skill-chip">LangGraph</span>
+          <span class="skill-chip">LangSmith</span>
+          <span class="skill-chip">OpenAI API</span>
+          <span class="skill-chip">Hugging Face</span>
+          <span class="skill-chip">Prompt Engineering</span>
+          <span class="skill-chip">LLM Function Calling</span>
+          <span class="skill-chip">Retrieval-Augmented Generation (RAG)</span>
+          <span class="skill-chip">Hybrid Retrieval</span>
+          <span class="skill-chip">BM25</span>
+          <span class="skill-chip">Reciprocal Rank Fusion</span>
+          <span class="skill-chip">Reranking</span>
+        </div>
       </div>
 
       <div class="skill-group">
         <h4>RAG, Retrieval &amp; Knowledge Graphs</h4>
-        <p>Dense Vector Search, Citation-Grounded Retrieval, Embedding Generation, Metadata Filtering, ChromaDB, Qdrant, pgvector, FAISS, Neo4j, Cypher, Entity Resolution, Subgraph Retrieval.</p>
+        <div class="skill-chips">
+          <span class="skill-chip">Dense Vector Search</span>
+          <span class="skill-chip">Citation-Grounded Retrieval</span>
+          <span class="skill-chip">Embedding Generation</span>
+          <span class="skill-chip">Metadata Filtering</span>
+          <span class="skill-chip">ChromaDB</span>
+          <span class="skill-chip">Qdrant</span>
+          <span class="skill-chip">pgvector</span>
+          <span class="skill-chip">FAISS</span>
+          <span class="skill-chip">Neo4j</span>
+          <span class="skill-chip">Cypher</span>
+          <span class="skill-chip">Entity Resolution</span>
+          <span class="skill-chip">Subgraph Retrieval</span>
+        </div>
       </div>
 
       <div class="skill-group">
         <h4>Backend, Python &amp; Engineering</h4>
-        <p>Python, FastAPI, OpenAPI, REST APIs, Microservices, Celery, Redis, Git, Clean Architecture.</p>
+        <div class="skill-chips">
+          <span class="skill-chip">Python</span>
+          <span class="skill-chip">FastAPI</span>
+          <span class="skill-chip">OpenAPI</span>
+          <span class="skill-chip">REST APIs</span>
+          <span class="skill-chip">Microservices</span>
+          <span class="skill-chip">Celery</span>
+          <span class="skill-chip">Redis</span>
+          <span class="skill-chip">Git</span>
+          <span class="skill-chip">Clean Architecture</span>
+        </div>
       </div>
 
       <div class="skill-group">
         <h4>Cloud, Deployment &amp; Observability</h4>
-        <p>AWS (EC2, Lambda, S3, API Gateway), Uvicorn, OpenTelemetry, LangSmith Tracing, Multi-Tenant Architecture, JWT.</p>
+        <div class="skill-chips">
+          <span class="skill-chip">AWS EC2</span>
+          <span class="skill-chip">AWS Lambda</span>
+          <span class="skill-chip">AWS S3</span>
+          <span class="skill-chip">AWS API Gateway</span>
+          <span class="skill-chip">Uvicorn</span>
+          <span class="skill-chip">OpenTelemetry</span>
+          <span class="skill-chip">LangSmith Tracing</span>
+          <span class="skill-chip">Multi-Tenant Architecture</span>
+          <span class="skill-chip">JWT</span>
+        </div>
       </div>
 
       <div class="skill-group">
         <h4>Evaluation, Monitoring &amp; Responsible AI</h4>
-        <p>LLM Evaluation, LLM-as-a-Judge, Golden Test Sets, Retrieval Quality Benchmarking, Faithfulness and Grounding Checks, Hallucination Detection, Regression Testing, Guardrails, Human-in-the-Loop Review, Explainable AI, Model Interpretability, Bias Detection.</p>
+        <div class="skill-chips">
+          <span class="skill-chip">LLM Evaluation</span>
+          <span class="skill-chip">LLM-as-a-Judge</span>
+          <span class="skill-chip">Golden Test Sets</span>
+          <span class="skill-chip">Retrieval Quality Benchmarking</span>
+          <span class="skill-chip">Faithfulness &amp; Grounding Checks</span>
+          <span class="skill-chip">Hallucination Detection</span>
+          <span class="skill-chip">Regression Testing</span>
+          <span class="skill-chip">Guardrails</span>
+          <span class="skill-chip">Human-in-the-Loop Review</span>
+          <span class="skill-chip">Explainable AI</span>
+          <span class="skill-chip">Model Interpretability</span>
+          <span class="skill-chip">Bias Detection</span>
+        </div>
       </div>
 
       <div class="skill-group">
         <h4>Data Science &amp; Machine Learning</h4>
-        <p>Supervised &amp; Unsupervised Learning, Classification, Regression, Clustering, Predictive Modelling, Risk Scoring, Propensity &amp; Churn Modelling, Sentiment Analysis, Feature Engineering, Feature Selection, Dimensionality Reduction, Model Validation, Cross-Validation, Hyperparameter Tuning, Time Series Analysis, Statistical Analysis, Experimental Design, scikit-learn, XGBoost, LightGBM, Model Performance Monitoring.</p>
+        <div class="skill-chips">
+          <span class="skill-chip">Supervised Learning</span>
+          <span class="skill-chip">Unsupervised Learning</span>
+          <span class="skill-chip">Classification</span>
+          <span class="skill-chip">Regression</span>
+          <span class="skill-chip">Clustering</span>
+          <span class="skill-chip">Predictive Modelling</span>
+          <span class="skill-chip">Risk Scoring</span>
+          <span class="skill-chip">Propensity &amp; Churn Modelling</span>
+          <span class="skill-chip">Sentiment Analysis</span>
+          <span class="skill-chip">Feature Engineering</span>
+          <span class="skill-chip">Feature Selection</span>
+          <span class="skill-chip">Dimensionality Reduction</span>
+          <span class="skill-chip">Model Validation</span>
+          <span class="skill-chip">Cross-Validation</span>
+          <span class="skill-chip">Hyperparameter Tuning</span>
+          <span class="skill-chip">Time Series Analysis</span>
+          <span class="skill-chip">Statistical Analysis</span>
+          <span class="skill-chip">Experimental Design</span>
+          <span class="skill-chip">scikit-learn</span>
+          <span class="skill-chip">XGBoost</span>
+          <span class="skill-chip">LightGBM</span>
+          <span class="skill-chip">Model Performance Monitoring</span>
+        </div>
       </div>
 
       <div class="skill-group">
         <h4>Deep Learning &amp; NLP</h4>
-        <p>PyTorch, TensorFlow, Transformers, Hugging Face, CNNs, RNNs, Graph Neural Networks (GAT, R-GAT, GraphSAGE), Temporal Graph Transformers, Informer / long-sequence models, Diffusion Models, Fine-Tuning, Distributed Multi-GPU Training (SLURM), Computer Vision, Object Detection, Image Classification, Text Classification.</p>
+        <div class="skill-chips">
+          <span class="skill-chip">PyTorch</span>
+          <span class="skill-chip">TensorFlow</span>
+          <span class="skill-chip">Transformers</span>
+          <span class="skill-chip">Hugging Face</span>
+          <span class="skill-chip">CNNs</span>
+          <span class="skill-chip">RNNs</span>
+          <span class="skill-chip">Graph Neural Networks (GAT, R-GAT, GraphSAGE)</span>
+          <span class="skill-chip">Temporal Graph Transformers</span>
+          <span class="skill-chip">Informer / Long-Sequence Models</span>
+          <span class="skill-chip">Diffusion Models</span>
+          <span class="skill-chip">Fine-Tuning</span>
+          <span class="skill-chip">Distributed Multi-GPU Training (SLURM)</span>
+          <span class="skill-chip">Computer Vision</span>
+          <span class="skill-chip">Object Detection</span>
+          <span class="skill-chip">Image Classification</span>
+          <span class="skill-chip">Text Classification</span>
+        </div>
       </div>
 
       <div class="skill-group">
         <h4>Big Data &amp; Data Engineering</h4>
-        <p>Large-Scale Data Handling, Data Cleaning, Pandas, NumPy, SQL on Large Datasets, PostgreSQL, data pipelines, async job processing, Kafka.</p>
+        <div class="skill-chips">
+          <span class="skill-chip">Large-Scale Data Handling</span>
+          <span class="skill-chip">Data Cleaning</span>
+          <span class="skill-chip">Pandas</span>
+          <span class="skill-chip">NumPy</span>
+          <span class="skill-chip">SQL on Large Datasets</span>
+          <span class="skill-chip">PostgreSQL</span>
+          <span class="skill-chip">Data Pipelines</span>
+          <span class="skill-chip">Async Job Processing</span>
+          <span class="skill-chip">Kafka</span>
+        </div>
       </div>
 
       <div class="skill-group">
         <h4>Domain Fit</h4>
-        <p>Financial document intelligence, compliance automation, risk analysis, regulated workflows, behavioural data analysis, customer intelligence, stakeholder-facing analytics.</p>
+        <div class="skill-chips">
+          <span class="skill-chip">Financial Document Intelligence</span>
+          <span class="skill-chip">Compliance Automation</span>
+          <span class="skill-chip">Risk Analysis</span>
+          <span class="skill-chip">Regulated Workflows</span>
+          <span class="skill-chip">Behavioural Data Analysis</span>
+          <span class="skill-chip">Customer Intelligence</span>
+          <span class="skill-chip">Stakeholder-Facing Analytics</span>
+        </div>
       </div>
 
       <div class="skill-group">
         <h4>Frontend (Working Knowledge)</h4>
-        <p>React, TypeScript, Vite, Chart.js — self-built functional UIs and dashboards to demo and visualise AI systems; supporting skill rather than a primary specialism.</p>
+        <div class="skill-chips">
+          <span class="skill-chip">React</span>
+          <span class="skill-chip">TypeScript</span>
+          <span class="skill-chip">Vite</span>
+          <span class="skill-chip">Chart.js</span>
+        </div>
+        <p class="skill-note">Self-built functional UIs and dashboards to demo and visualise AI systems — supporting skill rather than a primary specialism.</p>
       </div>
 
     </div>
